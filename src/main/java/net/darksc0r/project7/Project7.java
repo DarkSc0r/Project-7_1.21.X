@@ -1,5 +1,6 @@
 package net.darksc0r.project7;
 
+import net.darksc0r.project7.item.ModItems;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -36,15 +37,10 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(Project7.MODID)
-public class Project7
-{
-    // Define mod id in a common place for everything to reference
+public class Project7 {
     public static final String MODID = "project7";
-    // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    // The constructor for the mod class is the first code that is run when your mod is loaded.
-    // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public Project7(IEventBus modEventBus, ModContainer modContainer)
     {
         // Register the commonSetup method for modloading
@@ -54,6 +50,8 @@ public class Project7
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
+
+        ModItems.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -68,8 +66,11 @@ public class Project7
     }
 
     // Add the example block item to the building blocks tab
-    private void addCreative(BuildCreativeModeTabContentsEvent event)
-    {
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.STEEL);
+            event.accept(ModItems.RAWSTEEL);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
