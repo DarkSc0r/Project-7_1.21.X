@@ -1,4 +1,9 @@
 {
   "item.project7.steel": "Steel",
-  "item.project7.raw_steel": "Raw Steel"
+  "item.project7.raw_steel": "Raw Steel",
+
+  "block.project7.steel_block": "Block of Steel",
+  "block.project7.steel_ore": "Steel Ore",
+
+  "creativetab.project7.project7": "Project 7"
 }

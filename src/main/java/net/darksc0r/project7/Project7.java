@@ -1,5 +1,7 @@
 package net.darksc0r.project7;
 
+import net.darksc0r.project7.block.ModBlocks;
+import net.darksc0r.project7.item.ModCreativeModeTabs;
 import net.darksc0r.project7.item.ModItems;
 import org.slf4j.Logger;
 
@@ -51,7 +53,11 @@ public class Project7 {
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
+        ModCreativeModeTabs.register(modEventBus);
+
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -69,7 +75,12 @@ public class Project7 {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.STEEL);
-            event.accept(ModItems.RAWSTEEL);
+            event.accept(ModItems.RAW_STEEL);
+        }
+
+        if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModBlocks.STEEL_BLOCK);
+            event.accept(ModBlocks.STEEL_ORE);
         }
     }
 
