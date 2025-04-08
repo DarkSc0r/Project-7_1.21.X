@@ -73,15 +73,15 @@ public class Project7 {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.STEEL);
-            event.accept(ModItems.RAW_STEEL);
-        }
-
-        if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-            event.accept(ModBlocks.STEEL_BLOCK);
-            event.accept(ModBlocks.STEEL_ORE);
-        }
+//        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+//            event.accept(ModItems.STEEL);
+//            event.accept(ModItems.RAW_STEEL);
+//        }
+//
+//        if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+//            event.accept(ModBlocks.STEEL_BLOCK);
+//            event.accept(ModBlocks.STEEL_ORE);
+//        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

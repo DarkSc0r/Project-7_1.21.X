@@ -25,6 +25,7 @@ public class ModCreativeModeTabs {
 
                       output.accept(ModBlocks.STEEL_BLOCK);
                       output.accept(ModBlocks.STEEL_ORE);
+                      output.accept(ModBlocks.STEEL_DEEPSLATE_ORE);
 
                     }).build());
 
