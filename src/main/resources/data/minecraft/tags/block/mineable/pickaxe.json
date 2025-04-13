@@ -3,6 +3,12 @@
   "values": [
     "project7:steel_block",
     "project7:steel_ore",
-    "project7:steel_deepslate_ore"
+    "project7:steel_deepslate_ore",
+    "project7:tin_block",
+    "project7:tin_ore",
+    "project7:tin_deepslate_ore",
+    "project7:nickel_ore",
+    "project7:nickel_deepslate_ore"
+
   ]
 }

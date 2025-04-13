@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 500,
+  "experience": 0.25,
+  "group": "steel",
+  "ingredient": {
+    "item": "project7:steel_deepslate_ore"
+  },
+  "result": {
+    "count": 1,
+    "id": "project7:steel"
+  }
+}

@@ -2,9 +2,26 @@
   "item.project7.steel": "Steel",
   "item.project7.raw_steel": "Raw Steel",
 
+  "item.project7.tin": "Tin",
+  "item.project7.raw_tin": "Raw Tin",
+
+  "item.project7.nickel": "Nickel",
+  "item.project7.raw_nickel": "Raw Nickel",
+
+  "block.project7.pipe": "Pipe",
+
   "block.project7.steel_block": "Block of Steel",
   "block.project7.steel_ore": "Steel Ore",
   "block.project7.steel_deepslate_ore": "Deepslate Steel Ore",
+
+
+  "block.project7.tin_block": "Block of Tin",
+  "block.project7.tin_ore": "Tin Ore",
+  "block.project7.tin_deepslate_ore": "Deepslate Tin Ore",
+
+  "block.project7.nickel_block": "Block of Nickel",
+  "block.project7.nickel_ore": "Nickel Ore",
+  "block.project7.nickel_deepslate_ore": "Deepslate Nickel Ore",
 
   "creativetab.project7.project7": "Project 7"
 }
