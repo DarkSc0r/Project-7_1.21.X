@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 250,
+  "experience": 0.25,
+  "group": "nickel",
+  "ingredient": {
+    "item": "project7:nickel_ore"
+  },
+  "result": {
+    "count": 1,
+    "id": "project7:nickel"
+  }
+}

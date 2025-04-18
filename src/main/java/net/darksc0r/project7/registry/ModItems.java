@@ -23,6 +23,10 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> RAW_NICKEL = ITEMS.register("raw_nickel",
             () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> ALUMINUM = ITEMS.register("aluminum",
+            () -> new Item(new Item.Properties()));
+    public static final DeferredItem<Item> RAW_ALUMINUM = ITEMS.register("raw_aluminum",
+            () -> new Item((new Item.Properties())));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

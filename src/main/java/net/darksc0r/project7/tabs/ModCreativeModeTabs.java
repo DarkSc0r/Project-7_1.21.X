@@ -28,6 +28,8 @@ public class ModCreativeModeTabs {
                       output.accept(ModItems.RAW_TIN);
                       output.accept(ModItems.NICKEL);
                       output.accept(ModItems.RAW_NICKEL);
+                      output.accept(ModItems.ALUMINUM);
+                      output.accept(ModItems.RAW_ALUMINUM);
 
                       //special blocks.
                       output.accept(ModBlocks.PIPE);
@@ -42,6 +44,9 @@ public class ModCreativeModeTabs {
                       output.accept(ModBlocks.NICKEL_BLOCK);
                       output.accept(ModBlocks.NICKEL_ORE);
                       output.accept(ModBlocks.NICKEL_DEEPSLATE_ORE);
+                      output.accept(ModBlocks.ALUMINUM_DEEPSLATE_ORE);
+                      output.accept(ModBlocks.ALUMINUM_ORE);
+                      output.accept(ModBlocks.ALUMINUM_BLOCK);
 
                     }).build());
 
