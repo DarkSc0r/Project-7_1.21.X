@@ -53,9 +53,11 @@ public class ModCreativeModeTabs {
                       output.accept(ModBlocks.LEAD_BLOCK);
                       // Special Items
                       output.accept(ModItems.WRENCH);
+                      output.accept(ModItems.CHARCOAL_BRIQUETTE);
                       //special blocks.
                       output.accept(ModBlocks.PIPE);
                       output.accept(ModBlocks.MACHINE_CASING);
+                      output.accept(ModBlocks.CRUDE_CRUSHER);
                     }).build());
 
     /*IF ADDING A NEW CREATIVE MODE TAB

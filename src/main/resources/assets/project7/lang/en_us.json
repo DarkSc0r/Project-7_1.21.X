@@ -1,5 +1,6 @@
 {
   "item.project7.steel_ingot": "Steel",
+  "tooltip.project7.steel.tooltip": "This is the most important ore in this mod",
   "item.project7.raw_steel": "Raw Steel",
 
   "item.project7.tin_ingot": "Tin",
@@ -14,10 +15,14 @@
   "item.project7.lead_ingot": "Lead",
   "item.project7.raw_lead": "Raw Lead",
 
-  "item.project7.wrench": "Wrench",
+  "item.project7.wrench_item": "Wrench",
+  "tooltip.project7.wrench.tooltip": "hold shift",
+  "tooltip.project7.wrench.shift_down": "This item will rotate and link pipes!",
+  "item.project7.charcoal_briquette": "Charcoal Briquette",
   "block.project7.pipe": "Pipe",
   "block.project7.machine_casing": "Machine Casing",
-
+  "block.project7.crude_crusher": "Crude Crusher",
+  "tooltip.project7.crude_crusher.tooltip": "Put a raw ore into here and you will get the dust from it.",
 
   "block.project7.lead_block": "Block of Lead",
   "block.project7.lead_ore": "Lead Ore",

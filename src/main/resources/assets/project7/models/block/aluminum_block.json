@@ -1,6 +1,0 @@
-{
-  "parent":"minecraft:block/cube_all",
-  "textures": {
-    "all": "project7:block/aluminum_block"
-  }
-}

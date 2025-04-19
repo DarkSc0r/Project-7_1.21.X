@@ -1,8 +1,8 @@
 package net.darksc0r.project7.registry;
 
 import net.darksc0r.project7.Project7;
+import net.darksc0r.project7.block.custom.CrudeCrusherBlock;
 import net.darksc0r.project7.block.PipeBlock;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -85,12 +85,14 @@ public class ModBlocks {
     //Custom blocks
     public static final DeferredBlock<PipeBlock> PIPE = BLOCKS.register("pipe",
             () -> new PipeBlock(BlockBehaviour.Properties.of().strength(1.5F).requiresCorrectToolForDrops().noOcclusion()));
-
     public static final DeferredBlock<Block> MACHINE_CASING = registerBlock("machine_casing",
             () -> new Block(BlockBehaviour.Properties.of()
                     .strength(5f).noOcclusion()
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.GLASS)));
+    public static final DeferredBlock<CrudeCrusherBlock> CRUDE_CRUSHER = BLOCKS.register("crude_crusher",
+            () -> new CrudeCrusherBlock(BlockBehaviour.Properties.of()
+                    .strength(4f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
 //
 //    public static final DeferredBlock<CrudeCrusherBlock> CRUDE_CRUSHER = BLOCKS.register("crude_crusher",
 //            () -> new CrudeCrusherBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));

@@ -1,7 +1,0 @@
-{
-  "variants": {
-    "north=true,south=true,east=false,west=false": { "model": "yourmod:block/pipe_cross" },
-    "north=false,south=true,east=true,west=false": { "model": "yourmod:block/pipe_tjunction" },
-    "north=false,south=false,east=true,west=true": { "model": "yourmod:block/pipe_straight" }
-  }
-}
