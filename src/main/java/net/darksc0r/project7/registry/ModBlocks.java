@@ -69,10 +69,31 @@ public class ModBlocks {
             () -> new DropExperienceBlock(UniformInt.of(3, 6),
                     BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
 
-    public static final DeferredBlock<Block> PIPE = registerBlock("pipe",
-            () -> new PipeBlock(BlockBehaviour.Properties.of()
-                    .strength(2.0f)
-                    .noOcclusion()));
+    public static final DeferredBlock<Block> LEAD_BLOCK = registerBlock("lead_block",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(4f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
+
+    public static final DeferredBlock<Block> LEAD_ORE = registerBlock("lead_ore",
+            () -> new DropExperienceBlock(UniformInt.of(2, 4),
+                    BlockBehaviour.Properties.of().strength(4.5f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+
+    public static final DeferredBlock<Block> LEAD_DEEPSLATE_ORE = registerBlock("lead_deepslate_ore",
+            () -> new DropExperienceBlock(UniformInt.of(3, 6),
+                    BlockBehaviour.Properties.of().strength(5.5f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
+
+
+    //Custom blocks
+    public static final DeferredBlock<PipeBlock> PIPE = BLOCKS.register("pipe",
+            () -> new PipeBlock(BlockBehaviour.Properties.of().strength(1.5F).requiresCorrectToolForDrops().noOcclusion()));
+
+    public static final DeferredBlock<Block> MACHINE_CASING = registerBlock("machine_casing",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(5f).noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.GLASS)));
+//
+//    public static final DeferredBlock<CrudeCrusherBlock> CRUDE_CRUSHER = BLOCKS.register("crude_crusher",
+//            () -> new CrudeCrusherBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));
 
 
     private static<T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {

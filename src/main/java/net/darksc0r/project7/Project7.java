@@ -3,6 +3,8 @@ package net.darksc0r.project7;
 import net.darksc0r.project7.registry.ModBlocks;
 import net.darksc0r.project7.tabs.ModCreativeModeTabs;
 import net.darksc0r.project7.registry.ModItems;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -79,6 +81,8 @@ public class Project7 {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+            RenderType cutout = RenderType.cutout(); // Or translucent()
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.MACHINE_CASING.get(), cutout);
 
         }
     }

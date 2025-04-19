@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "project7:item/steel"
+    "layer0": "project7:item/wrench_item"
   }
 }

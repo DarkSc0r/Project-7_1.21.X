@@ -1,17 +1,27 @@
 {
-  "item.project7.steel": "Steel",
+  "item.project7.steel_ingot": "Steel",
   "item.project7.raw_steel": "Raw Steel",
 
-  "item.project7.tin": "Tin",
+  "item.project7.tin_ingot": "Tin",
   "item.project7.raw_tin": "Raw Tin",
 
-  "item.project7.nickel": "Nickel",
+  "item.project7.nickel_ingot": "Nickel",
   "item.project7.raw_nickel": "Raw Nickel",
 
-  "item.project7.aluminum": "Aluminum",
+  "item.project7.aluminum_ingot": "Aluminum",
   "item.project7.raw_aluminum": "Raw Aluminum",
 
+  "item.project7.lead_ingot": "Lead",
+  "item.project7.raw_lead": "Raw Lead",
+
+  "item.project7.wrench": "Wrench",
   "block.project7.pipe": "Pipe",
+  "block.project7.machine_casing": "Machine Casing",
+
+
+  "block.project7.lead_block": "Block of Lead",
+  "block.project7.lead_ore": "Lead Ore",
+  "block.project7.lead_deepslate_ore": "Deepslate Lead Ore",
 
   "block.project7.steel_block": "Block of Steel",
   "block.project7.steel_ore": "Steel Ore",
@@ -29,5 +39,6 @@
   "block.project7.nickel_ore": "Nickel Ore",
   "block.project7.nickel_deepslate_ore": "Deepslate Nickel Ore",
 
-  "creativetab.project7.project7": "Project 7"
+  "creativetab.project7.project7_tab": "Project 7"
+
 }
