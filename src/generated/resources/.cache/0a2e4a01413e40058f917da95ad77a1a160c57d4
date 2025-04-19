@@ -1,0 +1,4 @@
+// 1.21.1	2025-04-19T02:11:00.8269658	Tags for minecraft:block mod id project7
+1a50c274c487ba7997904bf66be01d6d70561777 data/minecraft/tags/block/mineable/pickaxe.json
+38737cb3d16ec9aa79b42416cad14858259f0876 data/minecraft/tags/block/needs_diamond_tool.json
+3750f36ef82efaa993027385ec094d9d1b47b83e data/minecraft/tags/block/needs_iron_tool.json

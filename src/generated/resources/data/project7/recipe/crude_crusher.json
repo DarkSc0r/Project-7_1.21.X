@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:cobblestone"
+    },
+    "M": {
+      "item": "project7:machine_casing"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "S": {
+      "item": "project7:steel_ingot"
+    }
+  },
+  "pattern": [
+    "SCS",
+    "RMR",
+    "SCS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "project7:crude_crusher"
+  }
+}

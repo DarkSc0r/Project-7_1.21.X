@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 750,
+  "experience": 0.25,
+  "group": "steel",
+  "ingredient": {
+    "item": "project7:raw_steel"
+  },
+  "result": {
+    "count": 1,
+    "id": "project7:steel_ingot"
+  }
+}

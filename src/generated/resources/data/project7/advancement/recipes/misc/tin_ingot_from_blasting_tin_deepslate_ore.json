@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "project7:tin_ingot_from_blasting_tin_deepslate_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tin_deepslate_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": "project7:tin_deepslate_ore"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tin_deepslate_ore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "project7:tin_ingot_from_blasting_tin_deepslate_ore"
+    ]
+  }
+}
