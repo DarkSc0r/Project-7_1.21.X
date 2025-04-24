@@ -8,7 +8,7 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
-        super(output, Project7.MODID, existingFileHelper);
+        super(output, Project7.MOD_ID, existingFileHelper);
     }
 
     @Override
@@ -25,5 +25,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.RAW_LEAD.get());
         basicItem(ModItems.CHARCOAL_BRIQUETTE.get());
         basicItem(ModItems.WRENCH.get());
+        basicItem(ModItems.STONE_GEAR.get());
     }
 }

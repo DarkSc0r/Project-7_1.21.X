@@ -1,8 +1,0 @@
-{
-  "parent": "block/orientable",
-  "textures": {
-    "top": "project7:block/crude_crusher_top",
-    "front": "project7:block/crude_crusher_front",
-    "side": "project7:block/crude_crusher_side"
-  }
-}

@@ -16,7 +16,7 @@ import net.darksc0r.project7.item.custom.WrenchItem;
 import java.util.List;
 
 public class ModItems {
-    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Project7.MODID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Project7.MOD_ID);
 
     public static final DeferredItem<Item> STEEL = ITEMS.register("steel_ingot",
             () -> new Item(new Item.Properties()){
@@ -50,11 +50,19 @@ public class ModItems {
     // Custom Items
     public static final DeferredItem<Item> CHARCOAL_BRIQUETTE = ITEMS.register("charcoal_briquette",
             () -> new FuelItem(new Item.Properties(), 2400));
+    public static final DeferredItem<Item> STONE_GEAR = ITEMS.register("stone_gear",
+            () -> new Item((new Item.Properties())) {
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("tooltip.project7.stone_gear.tooltip"));
+                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+                }
+            });
 
-    public static final DeferredItem<BlockItem> PIPE_ITEM = ITEMS.register("pipe",
-            () -> new BlockItem(ModBlocks.PIPE.get(), new Item.Properties()));
-    public static final DeferredItem<BlockItem> CRUDE_CRUSHER = ITEMS.register("crude_crusher",
-            () -> new BlockItem(ModBlocks.CRUDE_CRUSHER.get(), new Item.Properties()));
+//    public static final DeferredItem<BlockItem> CRUDE_PIPE_ITEM = ITEMS.register("crude_pipe",
+//            () -> new BlockItem(ModBlocks.CRUDE_PIPE.get(), new Item.Properties()));
+    public static final DeferredItem<BlockItem> CRUDE_SMELTER = ITEMS.register("crude_crusher",
+            () -> new BlockItem(ModBlocks.CRUDE_KILN.get(), new Item.Properties()));
 
     public static final DeferredItem<Item> WRENCH = ITEMS.register("wrench_item",
             () -> new WrenchItem(new Item.Properties().durability(128)));

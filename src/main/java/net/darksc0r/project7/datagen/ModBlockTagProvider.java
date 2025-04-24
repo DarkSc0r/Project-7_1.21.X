@@ -13,15 +13,15 @@ import java.util.concurrent.CompletableFuture;
 
 public class ModBlockTagProvider extends BlockTagsProvider {
     public ModBlockTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
-        super(output, lookupProvider, Project7.MODID, existingFileHelper);
+        super(output, lookupProvider, Project7.MOD_ID, existingFileHelper);
     }
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.STEEL_BLOCK.get())
-                .add(ModBlocks.STEEL_ORE.get())
-                .add(ModBlocks.STEEL_DEEPSLATE_ORE.get())
+//                .add(ModBlocks.STEEL_ORE.get())
+//                .add(ModBlocks.STEEL_DEEPSLATE_ORE.get())
                 .add(ModBlocks.TIN_BLOCK.get())
                 .add(ModBlocks.TIN_ORE.get())
                 .add(ModBlocks.TIN_DEEPSLATE_ORE.get())
@@ -34,11 +34,11 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.LEAD_BLOCK.get())
                 .add(ModBlocks.LEAD_ORE.get())
                 .add(ModBlocks.LEAD_DEEPSLATE_ORE.get())
-                .add(ModBlocks.CRUDE_CRUSHER.get())
+                .add(ModBlocks.CRUDE_KILN.get())
                 .add(ModBlocks.MACHINE_CASING.get());
 
         tag(BlockTags.NEEDS_DIAMOND_TOOL)
-                .add(ModBlocks.STEEL_DEEPSLATE_ORE.get())
+//                .add(ModBlocks.STEEL_DEEPSLATE_ORE.get())
                 .add(ModBlocks.TIN_DEEPSLATE_ORE.get())
                 .add(ModBlocks.NICKEL_DEEPSLATE_ORE.get())
                 .add(ModBlocks.ALUMINUM_DEEPSLATE_ORE.get())
@@ -46,7 +46,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.STEEL_BLOCK.get())
-                .add(ModBlocks.STEEL_ORE.get())
+//                .add(ModBlocks.STEEL_ORE.get())
                 .add(ModBlocks.TIN_BLOCK.get())
                 .add(ModBlocks.TIN_ORE.get())
                 .add(ModBlocks.NICKEL_BLOCK.get())
@@ -55,7 +55,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.ALUMINUM_ORE.get())
                 .add(ModBlocks.LEAD_BLOCK.get())
                 .add(ModBlocks.LEAD_ORE.get())
-                .add(ModBlocks.CRUDE_CRUSHER.get())
+                .add(ModBlocks.CRUDE_KILN.get())
                 .add(ModBlocks.MACHINE_CASING.get());
 
 

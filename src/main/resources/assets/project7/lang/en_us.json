@@ -18,11 +18,18 @@
   "item.project7.wrench_item": "Wrench",
   "tooltip.project7.wrench.tooltip": "hold shift",
   "tooltip.project7.wrench.shift_down": "This item will rotate and link pipes!",
+
+  "item.project7.stone_gear": "Stone Gear",
+  "tooltip.project7.stone_gear.tooltip": "A rough gear carved from stone. Primitive, but effective.",
+
   "item.project7.charcoal_briquette": "Charcoal Briquette",
-  "block.project7.pipe": "Pipe",
+
+  "block.project7.crude_pipe": "Crude Pipe",
+
+  "block.project7.crude_kiln": "Crude Kiln",
+  "tooltip.project7.crude_kiln.tooltip": "Put a raw ore into here and you will get the ingot from it.",
+
   "block.project7.machine_casing": "Machine Casing",
-  "block.project7.crude_crusher": "Crude Crusher",
-  "tooltip.project7.crude_crusher.tooltip": "Put a raw ore into here and you will get the dust from it.",
 
   "block.project7.lead_block": "Block of Lead",
   "block.project7.lead_ore": "Lead Ore",

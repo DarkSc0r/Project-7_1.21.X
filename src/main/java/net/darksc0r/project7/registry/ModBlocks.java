@@ -1,8 +1,7 @@
 package net.darksc0r.project7.registry;
 
 import net.darksc0r.project7.Project7;
-import net.darksc0r.project7.block.custom.CrudeCrusherBlock;
-import net.darksc0r.project7.block.PipeBlock;
+import net.darksc0r.project7.block.custom.CrudeKilnBlock;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -19,19 +18,19 @@ import java.util.function.Supplier;
 
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS =
-            DeferredRegister.createBlocks(Project7.MODID);
+            DeferredRegister.createBlocks(Project7.MOD_ID);
 
     public static final DeferredBlock<Block> STEEL_BLOCK = registerBlock("steel_block",
             () -> new Block(BlockBehaviour.Properties.of()
                     .strength(4f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
 
-    public static final DeferredBlock<Block> STEEL_ORE = registerBlock("steel_ore",
-            () -> new DropExperienceBlock(UniformInt.of(2, 4),
-                    BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
-
-    public static final DeferredBlock<Block> STEEL_DEEPSLATE_ORE = registerBlock("steel_deepslate_ore",
-            () -> new DropExperienceBlock(UniformInt.of(3, 6),
-                    BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
+//    public static final DeferredBlock<Block> STEEL_ORE = registerBlock("steel_ore",
+//            () -> new DropExperienceBlock(UniformInt.of(2, 4),
+//                    BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+//
+//    public static final DeferredBlock<Block> STEEL_DEEPSLATE_ORE = registerBlock("steel_deepslate_ore",
+//            () -> new DropExperienceBlock(UniformInt.of(3, 6),
+//                    BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
 
     public static final DeferredBlock<Block> TIN_BLOCK = registerBlock("tin_block",
             () -> new Block(BlockBehaviour.Properties.of()
@@ -83,16 +82,17 @@ public class ModBlocks {
 
 
     //Custom blocks
-    public static final DeferredBlock<PipeBlock> PIPE = BLOCKS.register("pipe",
-            () -> new PipeBlock(BlockBehaviour.Properties.of().strength(1.5F).requiresCorrectToolForDrops().noOcclusion()));
+//    public static final DeferredBlock<CrudePipeBlock> CRUDE_PIPE = BLOCKS.register("crude_pipe",
+//            () -> new CrudePipeBlock(BlockBehaviour.Properties.of().strength(1.5F).requiresCorrectToolForDrops().noOcclusion()));
+
     public static final DeferredBlock<Block> MACHINE_CASING = registerBlock("machine_casing",
             () -> new Block(BlockBehaviour.Properties.of()
                     .strength(5f).noOcclusion()
                     .requiresCorrectToolForDrops()
                     .sound(SoundType.GLASS)));
-    public static final DeferredBlock<CrudeCrusherBlock> CRUDE_CRUSHER = BLOCKS.register("crude_crusher",
-            () -> new CrudeCrusherBlock(BlockBehaviour.Properties.of()
-                    .strength(4f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
+
+    public static final DeferredBlock<Block> CRUDE_KILN = registerBlock("crude_kiln",
+            () -> new CrudeKilnBlock(BlockBehaviour.Properties.of()));
 //
 //    public static final DeferredBlock<CrudeCrusherBlock> CRUDE_CRUSHER = BLOCKS.register("crude_crusher",
 //            () -> new CrudeCrusherBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));

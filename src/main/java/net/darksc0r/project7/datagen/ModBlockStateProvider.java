@@ -9,15 +9,15 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 
 public class ModBlockStateProvider extends BlockStateProvider {
     public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
-        super(output, Project7.MODID, exFileHelper);
+        super(output, Project7.MOD_ID, exFileHelper);
     }
 
     @Override
     protected void registerStatesAndModels() {
         // Ores and Their Blocks
         blockWithItem(ModBlocks.STEEL_BLOCK);
-        blockWithItem(ModBlocks.STEEL_ORE);
-        blockWithItem(ModBlocks.STEEL_DEEPSLATE_ORE);
+//        blockWithItem(ModBlocks.STEEL_ORE);
+//        blockWithItem(ModBlocks.STEEL_DEEPSLATE_ORE);
 
         blockWithItem(ModBlocks.TIN_BLOCK);
         blockWithItem(ModBlocks.TIN_ORE);
@@ -37,6 +37,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         // Custom Items
         blockWithItem(ModBlocks.MACHINE_CASING);
+        blockWithItem(ModBlocks.CRUDE_KILN);
     }
 
     private void blockWithItem(DeferredBlock<?> deferredBlock) {

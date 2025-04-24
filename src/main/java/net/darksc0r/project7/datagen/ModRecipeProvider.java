@@ -3,7 +3,6 @@ package net.darksc0r.project7.datagen;
 import net.darksc0r.project7.Project7;
 import net.darksc0r.project7.registry.ModBlocks;
 import net.darksc0r.project7.registry.ModItems;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -22,8 +21,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput) {
-        List<ItemLike> STEEL_SMELTABLES = List.of(ModItems.RAW_STEEL,
-                ModBlocks.STEEL_ORE, ModBlocks.STEEL_DEEPSLATE_ORE);
+//        List<ItemLike> STEEL_SMELTABLES = List.of(ModItems.RAW_STEEL,
+//                ModBlocks.STEEL_ORE, ModBlocks.STEEL_DEEPSLATE_ORE);
 
         List<ItemLike> TIN_SMELTABLES = List.of(ModItems.RAW_TIN,
                 ModBlocks.TIN_ORE, ModBlocks.TIN_DEEPSLATE_ORE);
@@ -93,19 +92,26 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_glass", has(Items.GLASS))
                 .save(recipeOutput);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CRUDE_CRUSHER.get())
-                .pattern("SCS")
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.CRUDE_KILN.get())
+                .pattern("BCB")
                 .pattern("RMR")
-                .pattern("SCS")
-                .define('S', ModItems.STEEL.get())
-                .define('M', ModBlocks.MACHINE_CASING.get())
+                .pattern("BCB")
+                .define('B', Items.BRICK)
+                .define('M', Items.FURNACE)
                 .define('R', Items.REDSTONE)
                 .define('C', Items.COBBLESTONE)
-                .unlockedBy("has_steel", has(ModItems.STEEL))
-                .unlockedBy("has_machine_casing", has(ModBlocks.MACHINE_CASING))
+                .unlockedBy("has_brick", has(Items.BRICK))
+                .unlockedBy("has_furnace", has(Items.FURNACE))
                 .unlockedBy("has_redstone", has(Items.REDSTONE))
                 .unlockedBy("has_cobblestone", has(Items.COBBLESTONE))
                 .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.STONE_GEAR.get())
+                        .pattern(" C ")
+                        .pattern("C C")
+                        .pattern(" C ")
+                        .define('C', Items.COBBLESTONE)
+                        .unlockedBy("has_cobblestone", has(Items.COBBLESTONE)).save(recipeOutput);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.STEEL.get(), 9)
                 .requires(ModBlocks.STEEL_BLOCK)
@@ -123,8 +129,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(ModBlocks.LEAD_BLOCK)
                 .unlockedBy("has_lead_block", has(ModBlocks.LEAD_BLOCK)).save(recipeOutput);
 
-        oreSmelting(recipeOutput, STEEL_SMELTABLES, RecipeCategory.MISC, ModItems.STEEL.get(), 0.25f, 750, "steel");
-        oreBlasting(recipeOutput, STEEL_SMELTABLES, RecipeCategory.MISC, ModItems.STEEL.get(), 0.25f, 500, "steel");
+//        oreSmelting(recipeOutput, STEEL_SMELTABLES, RecipeCategory.MISC, ModItems.STEEL.get(), 0.25f, 750, "steel");
+//        oreBlasting(recipeOutput, STEEL_SMELTABLES, RecipeCategory.MISC, ModItems.STEEL.get(), 0.25f, 500, "steel");
 
         oreSmelting(recipeOutput, TIN_SMELTABLES, RecipeCategory.MISC, ModItems.TIN.get(), 0.25f, 750, "tin");
         oreBlasting(recipeOutput, TIN_SMELTABLES, RecipeCategory.MISC, ModItems.TIN.get(), 0.25f, 500, "tin");
@@ -157,7 +163,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                                                                        List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup, String pRecipeName) {
         for(ItemLike itemlike : pIngredients) {
             SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), pCategory, pResult, pExperience, pCookingTime, pCookingSerializer, factory).group(pGroup).unlockedBy(getHasName(itemlike), has(itemlike))
-                    .save(recipeOutput, Project7.MODID + ":" + getItemName(pResult) + pRecipeName + "_" + getItemName(itemlike));
+                    .save(recipeOutput, Project7.MOD_ID + ":" + getItemName(pResult) + pRecipeName + "_" + getItemName(itemlike));
         }
     }
 }

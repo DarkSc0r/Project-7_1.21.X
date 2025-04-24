@@ -30,15 +30,14 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.TIN_BLOCK.get());
         dropSelf(ModBlocks.NICKEL_BLOCK.get());
         dropSelf(ModBlocks.ALUMINUM_BLOCK.get());
-        dropSelf(ModBlocks.CRUDE_CRUSHER.get());
+        dropSelf(ModBlocks.CRUDE_KILN.get());
         dropSelf(ModBlocks.MACHINE_CASING.get());
-        dropSelf(ModBlocks.PIPE.get());
         dropSelf(ModBlocks.LEAD_BLOCK.get());
 
-        add(ModBlocks.STEEL_ORE.get(),
-                block -> createOreDrop(ModBlocks.STEEL_ORE.get(), ModItems.RAW_STEEL.get()));
-        add(ModBlocks.STEEL_DEEPSLATE_ORE.get(),
-                block -> createMultipleOreDrops(ModBlocks.STEEL_DEEPSLATE_ORE.get(), ModItems.RAW_STEEL.get(), 3, 6));
+//        add(ModBlocks.STEEL_ORE.get(),
+//                block -> createOreDrop(ModBlocks.STEEL_ORE.get(), ModItems.RAW_STEEL.get()));
+//        add(ModBlocks.STEEL_DEEPSLATE_ORE.get(),
+//                block -> createMultipleOreDrops(ModBlocks.STEEL_DEEPSLATE_ORE.get(), ModItems.RAW_STEEL.get(), 3, 6));
 
         add(ModBlocks.TIN_ORE.get(),
                 block -> createOreDrop(ModBlocks.TIN_ORE.get(), ModItems.RAW_TIN.get()));
@@ -59,6 +58,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
                 block -> createOreDrop(ModBlocks.LEAD_ORE.get(), ModItems.RAW_LEAD.get()));
         add(ModBlocks.LEAD_DEEPSLATE_ORE.get(),
                 block -> createMultipleOreDrops(ModBlocks.LEAD_DEEPSLATE_ORE.get(), ModItems.RAW_LEAD.get(), 3, 6));
+
+
 
     }
 
