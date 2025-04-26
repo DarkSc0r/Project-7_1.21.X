@@ -15,7 +15,7 @@ public class ModBlockEntities {
 
 
     public static final Supplier<BlockEntityType<CrudeKilnBlockEntity>> CRUDE_KILN_BE =
-            BLOCK_ENTITIES.register("growth_chamber_be", () -> BlockEntityType.Builder.of(
+            BLOCK_ENTITIES.register("crude_kiln_be", () -> BlockEntityType.Builder.of(
                     CrudeKilnBlockEntity::new, ModBlocks.CRUDE_KILN.get()).build(null));
 
     public static void register(IEventBus eventBus) {
