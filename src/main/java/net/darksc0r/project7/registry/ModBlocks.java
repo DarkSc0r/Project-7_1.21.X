@@ -92,7 +92,7 @@ public class ModBlocks {
                     .sound(SoundType.GLASS)));
 
     public static final DeferredBlock<Block> CRUDE_KILN = registerBlock("crude_kiln",
-            () -> new CrudeKilnBlock(BlockBehaviour.Properties.of()));
+            () -> new CrudeKilnBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
 //
 //    public static final DeferredBlock<CrudeCrusherBlock> CRUDE_CRUSHER = BLOCKS.register("crude_crusher",
 //            () -> new CrudeCrusherBlock(BlockBehaviour.Properties.of().strength(4f).requiresCorrectToolForDrops()));

@@ -2,7 +2,7 @@ package net.darksc0r.project7;
 
 import net.darksc0r.project7.registry.ModBlocks;
 import net.darksc0r.project7.screen.ModMenuTypes;
-import net.darksc0r.project7.block.ModBlockEntities;
+import net.darksc0r.project7.block.entity.ModBlockEntities;
 import net.darksc0r.project7.screen.custom.CrudeKilnScreen;
 import net.darksc0r.project7.tabs.ModCreativeModeTabs;
 import net.darksc0r.project7.registry.ModItems;

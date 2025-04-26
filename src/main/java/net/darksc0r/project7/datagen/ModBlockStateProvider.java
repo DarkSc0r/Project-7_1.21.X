@@ -37,10 +37,13 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         // Custom Items
         blockWithItem(ModBlocks.MACHINE_CASING);
-        blockWithItem(ModBlocks.CRUDE_KILN);
     }
 
     private void blockWithItem(DeferredBlock<?> deferredBlock) {
         simpleBlockWithItem(deferredBlock.get(), cubeAll(deferredBlock.get()));
     }
+//
+//    private void blockWithSpecialItem(DeferredBlock<?> deferredBlock) {
+//        block
+//    }
 }

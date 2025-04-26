@@ -2,12 +2,11 @@ package net.darksc0r.project7.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import net.darksc0r.project7.block.entity.CrudeKilnBlockEntity;
-import net.darksc0r.project7.block.ModBlockEntities;
+import net.darksc0r.project7.block.entity.ModBlockEntities;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.SimpleMenuProvider;
@@ -16,7 +15,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
@@ -29,20 +27,22 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 public class CrudeKilnBlock extends BaseEntityBlock {
-    // makes the block have a direction so it places in the correct spot
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final MapCodec<CrudeKilnBlock> CODEC = simpleCodec(CrudeKilnBlock::new);
 
     public CrudeKilnBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.defaultBlockState().setValue(FACING, Direction.NORTH));
+    }
+
+    @Override
+    protected MapCodec<? extends BaseEntityBlock> codec() {
+        return CODEC;
     }
 
     @Override
@@ -55,27 +55,22 @@ public class CrudeKilnBlock extends BaseEntityBlock {
         builder.add(FACING);
     }
 
+    @Nullable
     @Override
-    protected MapCodec<? extends BaseEntityBlock> codec() {
-        return CODEC;
-    }
-
-    @Override
-    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        tooltipComponents.add(Component.translatable("tooltip.project7.crude_kiln.tooltip"));
-        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-    }
-
-    @Override
-    public @Nullable BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
+    public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
         return new CrudeKilnBlockEntity(blockPos, blockState);
     }
 
+    @Override
+    protected RenderShape getRenderShape(BlockState state) {
+        return RenderShape.MODEL;
+    }
 
+    @Override
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-        if(pState.getBlock() != pNewState.getBlock()) {
+        if (pState.getBlock() != pNewState.getBlock()) {
             BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-            if (blockEntity instanceof  CrudeKilnBlockEntity crudeKilnBlockEntity) {
+            if (blockEntity instanceof CrudeKilnBlockEntity crudeKilnBlockEntity) {
                 crudeKilnBlockEntity.drops();
             }
         }
@@ -89,7 +84,7 @@ public class CrudeKilnBlock extends BaseEntityBlock {
         if (!pLevel.isClientSide()) {
             BlockEntity entity = pLevel.getBlockEntity(pPos);
             if(entity instanceof CrudeKilnBlockEntity crudeKilnBlockEntity) {
-                ((ServerPlayer) pPlayer).openMenu(new SimpleMenuProvider(crudeKilnBlockEntity, Component.literal("Crude Kiln")), pPos);
+                ((ServerPlayer) pPlayer).openMenu(new SimpleMenuProvider(crudeKilnBlockEntity, Component.literal("Growth Chamber")), pPos);
             } else {
                 throw new IllegalStateException("Our Container provider is missing!");
             }
@@ -109,10 +104,17 @@ public class CrudeKilnBlock extends BaseEntityBlock {
                 (level1, blockPos, blockState, blockEntity) -> blockEntity.tick(level1, blockPos, blockState));
     }
 
-//    @Override
-//    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
-//        // Placeholder: a simple full cube shape for now
-//        return Block.box(0, 0, 0, 16, 16, 16);
-//    }
+/*    @Override
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+        // Placeholder: a simple full cube shape for now
+        return Block.box(0, 0, 0, 16, 16, 16);
+    }
 
+            @Override
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        tooltipComponents.add(Component.translatable("tooltip.project7.crude_kiln.tooltip"));
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+    }
+
+ */
 }

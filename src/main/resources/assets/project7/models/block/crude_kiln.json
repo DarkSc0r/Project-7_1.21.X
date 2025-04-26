@@ -1,0 +1,8 @@
+{
+  "parent": "block/orientable",
+  "textures": {
+    "top": "project7:block/crude_kiln_top",
+    "front": "project7:block/crude_kiln_front",
+    "side": "project7:block/crude_kiln_side"
+  }
+}

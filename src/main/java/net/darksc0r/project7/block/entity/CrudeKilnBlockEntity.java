@@ -1,6 +1,5 @@
 package net.darksc0r.project7.block.entity;
 
-import net.darksc0r.project7.block.ModBlockEntities;
 import net.darksc0r.project7.registry.ModItems;
 import net.darksc0r.project7.screen.custom.CrudeKilnMenu;
 import net.minecraft.core.BlockPos;
@@ -9,6 +8,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -19,7 +19,6 @@ import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
@@ -42,7 +41,6 @@ public class CrudeKilnBlockEntity extends BlockEntity implements MenuProvider {
     private int progress = 0;
     private int maxProgress = 72;
 
-
     public CrudeKilnBlockEntity(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.CRUDE_KILN_BE.get(), pos, blockState);
         data = new ContainerData() {
@@ -55,10 +53,11 @@ public class CrudeKilnBlockEntity extends BlockEntity implements MenuProvider {
                 };
             }
 
+            @Override
             public void set(int i, int value) {
                 switch (i) {
-                    case 0 -> progress = value;
-                    case 1 -> maxProgress = value;
+                    case 0: CrudeKilnBlockEntity.this.progress = value;
+                    case 1: CrudeKilnBlockEntity.this.maxProgress = value;
                 }
             }
 
@@ -74,8 +73,9 @@ public class CrudeKilnBlockEntity extends BlockEntity implements MenuProvider {
         return Component.translatable("block.project7.crude_kiln");
     }
 
+    @Nullable
     @Override
-    public @Nullable AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
+    public AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
         return new CrudeKilnMenu(i, inventory, this, this.data);
     }
 
@@ -91,8 +91,8 @@ public class CrudeKilnBlockEntity extends BlockEntity implements MenuProvider {
     @Override
     protected void saveAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
         pTag.put("inventory", itemHandler.serializeNBT(pRegistries));
-        pTag.putInt("crude_kiln.progress", progress);
-        pTag.putInt("crude_kiln.max_progress", maxProgress);
+        pTag.putInt("growth_chamber.progress", progress);
+        pTag.putInt("growth_chamber.max_progress", maxProgress);
 
         super.saveAdditional(pTag, pRegistries);
     }
@@ -108,11 +108,11 @@ public class CrudeKilnBlockEntity extends BlockEntity implements MenuProvider {
 
     public void tick(Level level, BlockPos blockPos, BlockState blockState) {
         if(hasRecipe()) {
-            increaseSmeltingProgress();
+            increaseCraftingProgress();
             setChanged(level, blockPos, blockState);
 
-            if(hasSmeltingFinished()) {
-                smeltItem();
+            if(hasCraftingFinished()) {
+                craftItem();
                 resetProgress();
             }
         } else {
@@ -120,7 +120,7 @@ public class CrudeKilnBlockEntity extends BlockEntity implements MenuProvider {
         }
     }
 
-    private void smeltItem() {
+    private void craftItem() {
         ItemStack output = new ItemStack(ModItems.TIN.get(), 1);
 
         itemHandler.extractItem(INPUT_SLOT, 1, false);
@@ -130,20 +130,20 @@ public class CrudeKilnBlockEntity extends BlockEntity implements MenuProvider {
 
     private void resetProgress() {
         progress = 0;
-        maxProgress = 162;
+        maxProgress = 72;
     }
 
-
-    private boolean hasSmeltingFinished() {
+    private boolean hasCraftingFinished() {
         return this.progress >= this.maxProgress;
     }
 
-    private void increaseSmeltingProgress() {
+    private void increaseCraftingProgress() {
         progress++;
     }
 
     private boolean hasRecipe() {
-        ItemStack output = new ItemStack(ModItems.TIN.get(), 8);
+        ItemStack output = new ItemStack(ModItems.TIN.get(), 1);
+
         return itemHandler.getStackInSlot(INPUT_SLOT).is(ModItems.RAW_TIN) &&
                 canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
     }
@@ -160,15 +160,15 @@ public class CrudeKilnBlockEntity extends BlockEntity implements MenuProvider {
         return maxCount >= currentCount + count;
     }
 
-
     @Override
-    public CompoundTag getUpdateTag(HolderLookup.Provider registries) {
-        return super.getUpdateTag(registries);
+    public CompoundTag getUpdateTag(HolderLookup.Provider pRegistries) {
+        return saveWithoutMetadata(pRegistries);
     }
 
+    @Nullable
     @Override
-    public @Nullable Packet<ClientGamePacketListener> getUpdatePacket() {
-        return super.getUpdatePacket();
+    public Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
     }
 
 }

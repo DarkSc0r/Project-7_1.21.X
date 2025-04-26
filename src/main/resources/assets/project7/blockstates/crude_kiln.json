@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north":  { "model": "project7:block/crude_kiln" },
+    "facing=south":  { "model": "project7:block/crude_kiln", "y": 180 },
+    "facing=west":   { "model": "project7:block/crude_kiln", "y": 270 },
+    "facing=east":   { "model": "project7:block/crude_kiln", "y": 90 }
+  }
+}
