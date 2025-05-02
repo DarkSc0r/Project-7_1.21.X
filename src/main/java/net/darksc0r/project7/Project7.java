@@ -52,6 +52,8 @@ public class Project7 {
         ModMenuTypes.register(modEventBus);
 
 
+
+
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 

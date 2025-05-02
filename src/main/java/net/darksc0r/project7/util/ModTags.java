@@ -19,6 +19,7 @@ public class ModTags {
 
     public static class Items {
         public static final TagKey<Item> CRUSHABLE_ITEMS = createTag("crushable_items");
+        public static final TagKey<Item> FUEL_ITEMS = createTag("fuel_items");
 
         private static TagKey<Item> createTag(String name) {
             return ItemTags.create(ResourceLocation.fromNamespaceAndPath(Project7.MOD_ID, name));

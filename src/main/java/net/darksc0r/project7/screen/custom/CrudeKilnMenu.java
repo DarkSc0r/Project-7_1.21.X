@@ -32,6 +32,7 @@ public class CrudeKilnMenu extends AbstractContainerMenu {
 
         this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 0, 54, 34));
         this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 1, 104, 34));
+        this.addSlot(new SlotItemHandler(blockEntity.itemHandler, 2, 79, 58));
 
         addDataSlots(data);
     }

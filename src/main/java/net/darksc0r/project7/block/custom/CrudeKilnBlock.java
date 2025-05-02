@@ -25,6 +25,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
@@ -34,10 +35,12 @@ import java.util.List;
 public class CrudeKilnBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final MapCodec<CrudeKilnBlock> CODEC = simpleCodec(CrudeKilnBlock::new);
+    public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
     public CrudeKilnBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.defaultBlockState().setValue(FACING, Direction.NORTH));
+        this.registerDefaultState(this.defaultBlockState().setValue(LIT, false));
     }
 
     @Override
@@ -53,6 +56,7 @@ public class CrudeKilnBlock extends BaseEntityBlock {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING);
+        builder.add(LIT);
     }
 
     @Nullable
@@ -60,6 +64,7 @@ public class CrudeKilnBlock extends BaseEntityBlock {
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
         return new CrudeKilnBlockEntity(blockPos, blockState);
     }
+
 
     @Override
     protected RenderShape getRenderShape(BlockState state) {

@@ -23,6 +23,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.RAW_ALUMINUM.get());
         basicItem(ModItems.LEAD.get());
         basicItem(ModItems.RAW_LEAD.get());
+        basicItem(ModItems.SILVER.get());
         basicItem(ModItems.CHARCOAL_BRIQUETTE.get());
         basicItem(ModItems.WRENCH.get());
         basicItem(ModItems.STONE_GEAR.get());

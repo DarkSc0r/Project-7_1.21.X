@@ -44,6 +44,8 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> RAW_LEAD = ITEMS.register("raw_lead",
             () -> new Item((new Item.Properties())));
+    public static final DeferredItem<Item> SILVER = ITEMS.register("silver_ingot",
+            () -> new Item((new Item.Properties())));
 
 
 

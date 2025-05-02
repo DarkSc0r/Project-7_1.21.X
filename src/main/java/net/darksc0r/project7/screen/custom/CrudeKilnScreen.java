@@ -11,7 +11,7 @@ import net.minecraft.world.entity.player.Inventory;
 
 public class CrudeKilnScreen extends AbstractContainerScreen<CrudeKilnMenu> {
     private static final ResourceLocation GUI_TEXTURE =
-            ResourceLocation.fromNamespaceAndPath(Project7.MOD_ID,"textures/gui/crude_kiln/crude_kiln_gui.png");
+            ResourceLocation.fromNamespaceAndPath(Project7.MOD_ID,"textures/gui/crude_kiln/crude_kiln_fuel_gui.png");
     private static final ResourceLocation ARROW_TEXTURE =
             ResourceLocation.fromNamespaceAndPath(Project7.MOD_ID,"textures/gui/arrow_progress.png");
 
